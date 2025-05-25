@@ -1,20 +1,28 @@
 # Method-Invokers
 
 
+#Account Management System (Java Console Application)
+This is a simple **Java-based console application** for managing bank accounts using **Object-Oriented Programming (OOP)** principles. It allows users to create accounts, deposit money, withdraw money, and view account details — all via the terminal.
+
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 // Account class represents individual bank account
 class Account {
     private String accountNumber;     // Unique account number
     private String accountHolder;     // Name of the account holder
     private double balance;           // Current account balance
-// Constructor to initialize account details
+
+    // Constructor to initialize account details
     public Account(String accountNumber, String accountHolder, double initialBalance) {
         this.accountNumber = accountNumber;
         this.accountHolder = accountHolder;
         this.balance = initialBalance;
     }
- // Deposit method to add money to account
+
+    // Deposit method to add money to account
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -23,7 +31,8 @@ class Account {
             System.out.println("Invalid deposit amount.");
         }
     }
- // Withdraw method to take out money from account
+
+    // Withdraw method to take out money from account
     public void withdraw(double amount) {
         if (amount > 0 && balance >= amount) {
             balance -= amount;
@@ -32,22 +41,26 @@ class Account {
             System.out.println("Invalid or insufficient balance.");
         }
     }
-  // Display all account details
+
+    // Display all account details
     public void displayDetails() {
         System.out.println("Account Number: " + accountNumber);
         System.out.println("Account Holder: " + accountHolder);
         System.out.println("Balance: ₹" + balance);
     }
-  // Getter method for account number (used to find accounts)
+
+    // Getter method for account number (used to find accounts)
     public String getAccountNumber() {
         return accountNumber;
     }
 }
+
 // AccountManager class handles the logic and user interaction
 class AccountManager {
     private ArrayList<Account> accounts = new ArrayList<>();  // List to store multiple accounts
     private Scanner scanner = new Scanner(System.in);         // Scanner to take user input
-  // Start method to display the main menu and interact with user
+
+    // Start method to display the main menu and interact with user
     public void start() {
         int choice;
         do {
@@ -61,7 +74,8 @@ class AccountManager {
             System.out.print("Enter choice: ");
             choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
- // Handling user choice
+
+            // Handling user choice
             switch (choice) {
                 case 1: createAccount(); break;
                 case 2: deposit(); break;
@@ -72,7 +86,8 @@ class AccountManager {
             }
         } while (choice != 5);  // Loop until user chooses to exit
     }
-  // Method to create a new account and add to list
+
+    // Method to create a new account and add to list
     private void createAccount() {
         System.out.print("Enter account number: ");
         String accNum = scanner.nextLine();
@@ -82,13 +97,13 @@ class AccountManager {
         double balance = scanner.nextDouble();
         scanner.nextLine(); // Consume newline
 
- // Creating and adding new account
+        // Creating and adding new account
         Account acc = new Account(accNum, name, balance);
         accounts.add(acc);
         System.out.println("Account created successfully.");
     }
 
-   // Method to handle deposit
+    // Method to handle deposit
     private void deposit() {
         Account acc = findAccount();  // Find account using number
         if (acc != null) {
@@ -99,7 +114,7 @@ class AccountManager {
         }
     }
 
- // Method to handle withdrawal
+    // Method to handle withdrawal
     private void withdraw() {
         Account acc = findAccount();  // Find account using number
         if (acc != null) {
@@ -110,7 +125,7 @@ class AccountManager {
         }
     }
 
-  // Method to display a specific account's details
+    // Method to display a specific account's details
     private void displayDetails() {
         Account acc = findAccount();  // Find account using number
         if (acc != null) {
@@ -118,7 +133,7 @@ class AccountManager {
         }
     }
 
- // Method to search for an account by account number
+    // Method to search for an account by account number
     private Account findAccount() {
         System.out.print("Enter account number: ");
         String accNum = scanner.nextLine();
@@ -139,3 +154,8 @@ public class AccountManagementSystem {
         manager.start();  // Start the system
     }
 }
+
+
+
+
+
