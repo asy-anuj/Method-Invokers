@@ -5,7 +5,7 @@
 This is a simple **Java-based console application** for managing bank accounts using **Object-Oriented Programming (OOP)** principles. It allows users to create accounts, deposit money, withdraw money, and view account details — all via the terminal.
 
 
-
+'''java
 import java.util.ArrayList;
 import java.util.Scanner;
 // Account class represents individual bank account
@@ -154,7 +154,7 @@ public class AccountManagementSystem {
         AccountManager manager = new AccountManager();  // Create manager object
         manager.start();  // Start the system
     }
-}
+} '''
 
 
 
