@@ -8,7 +8,6 @@ This is a simple **Java-based console application** for managing bank accounts u
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 // Account class represents individual bank account
 class Account {
     private String accountNumber;     // Unique account number
@@ -56,6 +55,8 @@ class Account {
 }
 
 // AccountManager class handles the logic and user interaction
+
+
 class AccountManager {
     private ArrayList<Account> accounts = new ArrayList<>();  // List to store multiple accounts
     private Scanner scanner = new Scanner(System.in);         // Scanner to take user input
